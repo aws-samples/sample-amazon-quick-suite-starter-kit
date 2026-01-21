@@ -22,25 +22,24 @@ This starter kit automates the deployment of Amazon Quick Suite (formerly Amazon
 - Monitoring and usage tracking tools
 - Pre-configured security best practices
 
+## Documentation
+
+**[View Full Documentation](https://special-adventure-5lgmjjy.pages.github.io/)**
+
+Complete setup guides, architecture details, and operator tools are available in the documentation site.
+
 ## Architecture
 
 ![Authentication Flow](docs/images/auth-flow.png)
 
 Users authenticate through AWS IAM Identity Center to access Amazon Quick Suite. The starter kit automates the deployment and configuration of both services.
 
-## Quick Start
+## Quick Links
 
-Ready to deploy? Follow our complete documentation:
-
-**📚 [Full Documentation](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/)**
-
-Or jump directly to:
-
-1. **[Overview](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/)** - What is Quick Suite and this starter kit
-2. **[Getting Started](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/getting-started/)** - Deploy in ~15 minutes
-3. **[Architecture](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/architecture/)** - How it works
-4. **[Operator Tools](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/operator-tools/)** - Manage users and monitor usage
-5. **[Cleanup](https://aws-samples.github.io/sample-amazon-quick-suite-starter-kit/cleanup/)** - Remove resources
+1. [Getting Started](https://special-adventure-5lgmjjy.pages.github.io/getting-started/) - Deploy in ~15 minutes
+2. [Architecture](https://special-adventure-5lgmjjy.pages.github.io/architecture/) - How it works
+3. [Operator Tools](https://special-adventure-5lgmjjy.pages.github.io/operator-tools/) - Manage users and monitor usage
+4. [Cleanup](https://special-adventure-5lgmjjy.pages.github.io/cleanup/) - Remove resources
 
 ## Project Structure
 
