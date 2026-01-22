@@ -21,12 +21,11 @@ Displays Quick Suite account overview with user counts and role distribution.
 uv run monitor account-summary
 ```
 
-Shows:
+For all available options:
 
-- Total users
-- Active vs inactive users
-- Users by role
-- Total groups
+```bash
+uv run monitor account-summary --help
+```
 
 ---
 
@@ -38,9 +37,11 @@ Lists all Quick Suite users with their roles and status.
 uv run monitor list-users
 ```
 
-**Options:**
+For all available options:
 
-- `--namespace`: Quick Suite namespace (default: "default")
+```bash
+uv run monitor list-users --help
+```
 
 ---
 
@@ -52,9 +53,11 @@ Lists all Quick Suite groups.
 uv run monitor list-groups
 ```
 
-**Options:**
+For all available options:
 
-- `--namespace`: Quick Suite namespace (default: "default")
+```bash
+uv run monitor list-groups --help
+```
 
 ---
 
@@ -66,10 +69,11 @@ Lists all members of a specific Quick Suite group.
 uv run monitor list-group-members --group-name QUICK_SUITE_ADMIN
 ```
 
-**Options:**
+For all available options:
 
-- `--group-name`: Group name (required)
-- `--namespace`: Quick Suite namespace (default: "default")
+```bash
+uv run monitor list-group-members --help
+```
 
 ## See Also
 

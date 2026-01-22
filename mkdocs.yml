@@ -20,7 +20,6 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Architecture: architecture.md
   - Operator Tools:
     - Overview: operator-tools/index.md
     - User Management Runbook: operator-tools/user-management-runbook.md
