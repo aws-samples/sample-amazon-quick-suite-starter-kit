@@ -12,7 +12,8 @@ This guide walks you through deploying Amazon Quick Suite with [AWS IAM Identity
 - AWS CDK CLI: `npm install -g aws-cdk`
 
 !!! warning "Region Restrictions"
-Amazon Quick Suite AI capabilities are only available in certain AWS regions. Check the [Quick Suite FAQs](https://aws.amazon.com/quicksuite/faqs/) for current regional availability.
+
+    Amazon Quick Suite AI capabilities are only available in certain AWS regions. Check the [Quick Suite FAQs](https://aws.amazon.com/quicksuite/faqs/) for current regional availability.
 
 ## Step 1: Install Dependencies
 
@@ -32,7 +33,15 @@ Existing [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/) in
 **QUICK_SUITE_ACCOUNT_NAME** (default: `QuickSuiteStarterKit`)  
 Display name for your Quick Suite account.
 
-!!! danger "Important" - End users must type this name when signing in - choose wisely! - **Cannot be changed** after account creation - Must be **globally unique** across all AWS accounts - Length: 1-62 characters - Must start with a letter or digit - Can contain letters, digits, and hyphens - Cannot end with a hyphen
+!!! danger "Important"
+
+    - End users must type this name when signing in - choose wisely!
+    - **Cannot be changed** after account creation
+    - Must be **globally unique** across all AWS accounts
+    - Length: 1-62 characters
+    - Must start with a letter or digit
+    - Can contain letters, digits, and hyphens
+    - Cannot end with a hyphen
 
 **QUICK_SUITE_ADMIN_EMAIL** (default: `admin@example.com`)  
 Email address for Quick Suite admin notifications. Please choose a real email to get important updates concerning your account.
@@ -43,7 +52,8 @@ Name of the [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/)
 ### Example Configuration
 
 === "cdk.json"
-`json
+
+    ```json
     {
       "context": {
         "IDENTITY_CENTER_INSTANCE_ARN": "arn:aws:sso:::instance/ssoins-xxxxx",
@@ -52,16 +62,17 @@ Name of the [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/)
         "QUICK_SUITE_ADMIN_GROUP_NAME": "QuickSuiteAdmins"
       }
     }
-    `
+    ```
 
 === "Command Line"
-`bash
+
+    ```bash
     npm run cdk deploy \
       -c IDENTITY_CENTER_INSTANCE_ARN=arn:aws:sso:::instance/ssoins-xxxxx \
       -c QUICK_SUITE_ACCOUNT_NAME=MyCompanyQuickSuite \
       -c QUICK_SUITE_ADMIN_EMAIL=quicksuite-admin@mycompany.com \
       -c QUICK_SUITE_ADMIN_GROUP_NAME=QuickSuiteAdmins
-    `
+    ```
 
 ## Step 3: Bootstrap AWS Account
 
@@ -84,15 +95,18 @@ This deployment will:
 3. Create the `QUICK_SUITE_ADMIN` group automatically (required for setup)
 
 !!! warning "Do Not Access Quick Suite Yet"
-After deployment completes, **do not** navigate to <https://us-east-1.quicksight.aws.amazon.com> yet. You must create an admin user first (Step 6), otherwise you won't be able to sign in.
+
+    After deployment completes, **do not** navigate to <https://us-east-1.quicksight.aws.amazon.com> yet. You must create an admin user first (Step 6), otherwise you won't be able to sign in.
 
 !!! note "Using Existing Admin Group"
-If you have an existing admin group synced from your federated identity provider to [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/), you can modify the CDK code to use that group name instead of `QUICK_SUITE_ADMIN`.
+
+    If you have an existing admin group synced from your federated identity provider to [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/), you can modify the CDK code to use that group name instead of `QUICK_SUITE_ADMIN`.
 
 ## Step 5: Enable Email OTP for API-Created Users
 
 !!! danger "CRITICAL: Required Before Creating Users"
-This is a **one-time manual step** that you must complete before creating users via the operator tools. Without this setting, users created via API will not receive the invite to sign in.
+
+    This is a **one-time manual step** that you must complete before creating users via the operator tools. Without this setting, users created via API will not receive the invite to sign in.
 
 **Steps:**
 
@@ -108,7 +122,8 @@ This setting allows users created via API to receive a verification email on the
 ## Step 6: Create Your First Admin User
 
 !!! danger "CRITICAL: Do This Before Accessing Quick Suite"
-You **must** create an admin user before attempting to access Quick Suite. Without a user in the `QUICK_SUITE_ADMIN` group, you cannot sign in.
+
+    You **must** create an admin user before attempting to access Quick Suite. Without a user in the `QUICK_SUITE_ADMIN` group, you cannot sign in.
 
 Navigate to the operator tools directory:
 
@@ -138,7 +153,8 @@ After you create a user, they must verify their email and set up authentication 
 3. **Set Password**: The user creates their password.
 
 !!! tip "Password Requirements"
-Passwords must be at least 8 characters and contain uppercase, lowercase, numbers, and special characters.
+
+    Passwords must be at least 8 characters and contain uppercase, lowercase, numbers, and special characters.
 
 ## Step 7: Access Quick Suite
 
@@ -150,7 +166,8 @@ Now you can access Quick Suite:
 4. Sign in with your admin user credentials
 
 !!! success "You're Ready!"
-Your Quick Suite environment is now fully configured and ready to use!
+
+    Your Quick Suite environment is now fully configured and ready to use!
 
 ## Step 8: Verify Deployment
 
@@ -175,4 +192,4 @@ See the [User Management Runbook](operator-tools/user-management-runbook.md) for
 ### Other Resources
 
 - [Monitoring Runbook](operator-tools/monitoring-runbook.md) - Track usage
-- [Architecture](architecture.md) - Understand how it works
+- [Architecture Details](https://builder.aws.com/content/33FWxLBkVVy9zWYOppQKWcj7UTz/accelerate-your-amazon-quick-suite-implementation-starter-kit-for-rapid-deployment) - Blog post

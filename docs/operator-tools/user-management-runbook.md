@@ -7,7 +7,8 @@ Guide for managing [AWS IAM Identity Center](https://docs.aws.amazon.com/singles
 The `manage-users` tool manages AWS IAM Identity Center users and groups, and assigns them to Quick Suite roles. All operations are idempotent.
 
 !!! info "Using Custom Group Names"
-This tool uses default group names: `QUICK_SUITE_ADMIN`, `QUICK_SUITE_ENTERPRISE`, and `QUICK_SUITE_PRO`. If you have custom group names from your federated identity provider, modify the `QuickSuiteGroup` enum and `QUICKSIGHT_ROLE_MAPPING` dictionary in `operator_tools/src/manage_users.py` before using these tools.
+
+    This tool uses default group names: `QUICK_SUITE_ADMIN`, `QUICK_SUITE_ENTERPRISE`, and `QUICK_SUITE_PRO`. If you have custom group names from your federated identity provider, modify the `QuickSuiteGroup` enum and `QUICKSIGHT_ROLE_MAPPING` dictionary in `operator_tools/src/manage_users.py` before using these tools.
 
 ## Prerequisites
 
@@ -21,7 +22,8 @@ This tool uses default group names: `QUICK_SUITE_ADMIN`, `QUICK_SUITE_ENTERPRISE
 Creates the Quick Suite pricing tier groups in [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/).
 
 !!! warning "Run This Before Adding Non-Admin Users"
-You must run this command before creating users with `QUICK_SUITE_ENTERPRISE` or `QUICK_SUITE_PRO` groups. Without these groups, you cannot assign users to Author Pro or Reader Pro roles.
+
+    You must run this command before creating users with `QUICK_SUITE_ENTERPRISE` or `QUICK_SUITE_PRO` groups. Without these groups, you cannot assign users to Author Pro or Reader Pro roles.
 
 ```bash
 uv run manage-users setup-groups
@@ -49,13 +51,11 @@ uv run manage-users create-user \
   --group QUICK_SUITE_ADMIN
 ```
 
-**Options:**
+For all available options:
 
-- `--username`: Username (required)
-- `--email`: Email address (required)
-- `--given-name`: First name (required)
-- `--family-name`: Last name (required)
-- `--group`: Group assignment (optional)
+```bash
+uv run manage-users create-user --help
+```
 
 ---
 
@@ -89,15 +89,21 @@ uv run manage-users sync-users --file users.json
 
 Maps [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/) groups to Quick Suite roles.
 
-!!! danger "Prerequisites" - Run `setup-groups` first to create the groups (if using default group names) - Groups must exist in AWS IAM Identity Center before running this command - If groups don't exist, the command will fail with an error for each missing group
+!!! danger "Prerequisites"
+
+    - Run `setup-groups` first to create the groups (if using default group names)
+    - Groups must exist in AWS IAM Identity Center before running this command
+    - If groups don't exist, the command will fail with an error for each missing group
 
 ```bash
 uv run manage-users assign-groups-to-quick-suite
 ```
 
-**Options:**
+For all available options:
 
-- `--namespace`: Quick Suite namespace (default: "default")
+```bash
+uv run manage-users assign-groups-to-quick-suite --help
+```
 
 **Default Mappings:**
 
@@ -115,10 +121,11 @@ uv run manage-users add-user-to \
   --group QUICK_SUITE_ENTERPRISE
 ```
 
-**Options:**
+For all available options:
 
-- `--user-id`: User ID (required)
-- `--group`: Target group (required)
+```bash
+uv run manage-users add-user-to --help
+```
 
 ---
 
